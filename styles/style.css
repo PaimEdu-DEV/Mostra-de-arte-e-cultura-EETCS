@@ -1,0 +1,261 @@
+/* === ESTILOS GLOBAIS E RESET === */
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: #f9fafb; /* Fundo padrão para o corpo */
+}
+
+/* === SEÇÃO DE INÍCIO === */
+.fundo-inicio {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    color: #ffffff;
+    background-image:
+        linear-gradient(rgba(92, 32, 128, 0.7), rgba(92, 32, 128, 0.7)),
+        url('/imagens/fundo-header.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#mostra {
+    font-weight: 800;
+    font-size: clamp(2.5rem, 10vw, 6rem);
+    letter-spacing: .6px;
+    margin-bottom: 0.5em;
+}
+
+.eetcs-color {
+    color: #F2C94C;
+}
+
+#introducao {
+    font-size: clamp(1rem, 4.5vw, 1.75rem);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    margin-bottom: 1.5em;
+}
+
+/* Info Boxes (Data e Hora) */
+.info-boxes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 2em;
+}
+
+.info-box {
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 250px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    padding: 0 15px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.icon-img {
+    width: 22px;
+    height: 22px;
+    margin-right: 10px;
+}
+
+/* === ÁREA DOS BOTÕES === */
+.container-botoes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+}
+
+.btn {
+    font-weight: 600;
+    font-size: 1rem;
+    border: none;
+    border-radius: 30px;
+    padding: 14px 28px;
+    cursor: pointer;
+    color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+}
+
+.btn-saiba {
+    background: linear-gradient(45deg, #FFD43B, #FF9900);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-inscreva {
+    background: linear-gradient(45deg, #8e2de2, #4a00e0);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+/* === SEÇÕES DE CONTEÚDO ('Sobre' e 'O que esperar') === */
+.section-container {
+    display: flex;
+    justify-content: center;
+    padding: 60px 20px;
+    background-color: #f9fafb;
+}
+
+.section-content {
+    max-width: 900px;
+    width: 100%;
+    text-align: center;
+    background: #ffffff;
+    padding: 30px 25px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+    font-size: clamp(2rem, 8vw, 3.125rem);
+    font-weight: 700;
+    background: linear-gradient(45deg, #FFD43B, #FF9900);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.section-text {
+    font-size: clamp(1rem, 4vw, 1.1875rem);
+    line-height: 1.7;
+    color: #333;
+}
+
+/* === FOOTER === */
+.main-footer {
+    background-color: #5c2080;
+    color: #ffffff;
+    padding: 30px 20px;
+    font-size: 0.9rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    /* Para mobile: empilha os itens */
+    flex-direction: column;
+    gap: 20px;
+}
+
+.footer-info {
+    text-align: center;
+    font-weight: 400;
+    font-size: clamp(0.8125rem, 3vw, 1rem); 
+}
+
+#faq-pai {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#faq {
+    text-decoration: none;
+    color: #f9fafb;
+    line-height: 1;
+}
+
+#suporte {
+    width: 32px;
+    height: 32px;
+}
+
+/* ======================================================= */
+/* MEDIA QUERY: Ajustes para telas maiores (Tablet/Desktop)*/
+/* ======================================================= */
+
+@media (min-width: 768px) {
+    .info-boxes {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .info-box {
+        width: 180px;
+        max-width: none;
+    }
+    
+    .info-box:last-child {
+        width: auto; /* Deixa a largura se ajustar ao conteúdo */
+    }
+
+    .container-botoes {
+        flex-direction: row;
+        justify-content: center;
+        width: auto;
+    }
+
+    .btn {
+        width: auto;
+    }
+
+    .section-container {
+        padding: 80px 40px;
+    }
+
+    .section-content {
+        padding: 40px 50px;
+    }
+
+    /* Rodapé em telas grandes */
+    .footer-content {
+        /* NOVO: Torna este container a referência para o posicionamento absoluto */
+        position: relative;
+        /* Mantém o alinhamento vertical dos itens */
+        justify-content: center;
+    }
+
+    .footer-info {
+        /* Garante que o texto de copyright ficará centralizado */
+        text-align: center;
+    }
+
+    #faq-pai {
+        /* NOVO: Tira o link do fluxo normal e o prende na direita */
+        position: absolute;
+        right: 0;
+    }
+}
