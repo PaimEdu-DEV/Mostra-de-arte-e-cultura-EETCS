@@ -121,35 +121,86 @@ body {
     transform: translateY(1px);
 }
 
+/* === ESTILO DA CONTAGEM REGRESSIVA === */
+#countdown-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 30px 0 0 0;
+}
+
+.countdown-box {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 10px 15px; /* Padding padrão para as caixas */
+    width: 95px; /* Largura ajustada */
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.countdown-box span {
+    display: block;
+}
+
+#countdown-dias,
+#countdown-horas,
+#countdown-minutos,
+#countdown-segundos {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #F2C94C;
+    line-height: 1.1;
+}
+
+.countdown-label {
+    font-size: 0.8rem;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin-top: 5px;
+}
+
+.evento-acontecendo {
+    margin-top: 30px;
+    color: #F2C94C;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
 /* === SEÇÕES DE CONTEÚDO === */
 .section-container {
     display: flex;
     justify-content: center;
     padding: 60px 20px;
-    background-color: #f9fafb; /* REMOVIDO: a classe section-bg-alt foi removida do HTML */
+    background-color: #f9fafb;
 }
-
-/* MUDANÇA: A classe .section-bg-alt não é mais necessária aqui */
 
 .section-content {
     max-width: 900px;
     width: 100%;
     text-align: center;
-    background: #ffffff; /* Este é o estilo de CARD padrão */
+    background: #ffffff;
     padding: 30px 25px;
     border-radius: 20px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* MUDANÇA: Regra antiga .section-bg-alt .section-content foi REMOVIDA */
-
 .section-content:hover {
     transform: translateY(-5px);
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
 }
 
-/* MUDANÇA: Regra antiga .section-bg-alt .section-content:hover foi REMOVIDA */
+#expectativas .section-content {
+    background: none;
+    box-shadow: none;
+}
+
+#expectativas .section-content:hover {
+    transform: none;
+    box-shadow: none;
+}
 
 .section-title {
     font-size: clamp(2rem, 8vw, 3.125rem);
@@ -168,30 +219,13 @@ body {
     color: #333;
 }
 
-/* === ESTILOS ATUALIZADOS E NOVOS === */
-
-/* NOVO: Regra para a seção de expectativas NÃO virar um card */
-/* Isso permite que os cards de depoimento fiquem sobre o fundo da página */
-#expectativas .section-content {
-    background: none;
-    box-shadow: none;
-}
-
-#expectativas .section-content:hover {
-    transform: none;
-    box-shadow: none;
-}
-
-
-/* Grid para os cards de avaliação ("Expectativas") */
 .avaliacoes-grid {
-    display: flex; /* Empilhado no mobile */
+    display: flex;
     flex-direction: column;
     gap: 20px;
     margin-top: 30px;
 }
 
-/* Estilo do card de depoimento individual */
 .depoimento-card {
     background: #ffffff;
     border-radius: 15px;
@@ -232,22 +266,19 @@ body {
     font-style: normal;
 }
 
-
-/* Estilo para Opções de Inscrição */
-/* MUDANÇA: Como "inscreva-se" agora é um card, ajustei o fundo das opções */
 .opcoes-inscricao {
     margin-top: 30px;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     gap: 20px;
 }
 
 .opcoes-inscricao .opcao {
-    background-color: #f9fafb; /* Fundo cinza claro para destacar dentro do card branco */
+    background-color: #f9fafb;
     padding: 25px;
     border-radius: 10px;
-    border-left: 5px solid #5c2080; 
-    text-align: left; 
+    border-left: 5px solid #5c2080;
+    text-align: left;
 }
 
 .opcoes-inscricao .opcao h3 {
@@ -271,7 +302,6 @@ body {
     color: #8e2de2;
 }
 
-
 /* === FOOTER === */
 .main-footer {
     background-color: #5c2080;
@@ -292,7 +322,7 @@ body {
 .footer-info {
     text-align: center;
     font-weight: 400;
-    font-size: clamp(0.8125rem, 3vw, 1rem); 
+    font-size: clamp(0.8125rem, 3vw, 1rem);
 }
 
 /* ======================================================= */
@@ -309,9 +339,9 @@ body {
         width: 180px;
         max-width: none;
     }
-    
+
     .info-box:last-child {
-        width: auto; 
+        width: auto;
     }
 
     .container-botoes {
@@ -324,6 +354,15 @@ body {
         width: auto;
     }
 
+    #countdown-container {
+        gap: 20px;
+    }
+
+    .countdown-box {
+        padding: 15px; /* Ajusta o padding vertical para telas maiores */
+        /* width: 95px já está definido na regra principal */
+    }
+
     .section-container {
         padding: 80px 40px;
     }
@@ -332,7 +371,6 @@ body {
         padding: 40px 50px;
     }
 
-    /* Rodapé em telas grandes */
     .footer-content {
         position: relative;
         justify-content: center;
@@ -342,8 +380,6 @@ body {
         text-align: center;
     }
 
-    /* === NOVOS ESTILOS RESPONSIVOS === */
-
     .avaliacoes-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -351,10 +387,29 @@ body {
     }
 
     .opcoes-inscricao {
-        flex-direction: row; 
+        flex-direction: row;
     }
 
     .opcoes-inscricao .opcao {
-        flex: 1; 
+        flex: 1;
     }
+
+    /* Ajuste fino para desktop */
+    #countdown-segundos-box {
+        padding-left: 14px;
+        padding-right: 14px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+}
+
+/* === AJUSTE FINO VISUAL PARA A CAIXA "SEGUNDOS" (ADICIONADO) === */
+#countdown-segundos-box {
+  /* Tira um pouquinho de espaço da esquerda */
+  padding-left: 14px;
+  /* Adiciona um pouquinho de espaço na direita */
+  padding-right: 16px;
+  /* Mantém o padding vertical igual aos outros (para mobile) */
+  padding-top: 10px;
+  padding-bottom: 10px;
 }

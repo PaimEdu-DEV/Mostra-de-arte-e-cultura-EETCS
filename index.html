@@ -33,6 +33,25 @@
         <a href="#sobre-mostra" class="btn btn-saiba">Saiba Mais</a>
         <a href="#inscreva-se" class="btn btn-inscreva">Inscreva-se!</a>
       </div>
+
+      <div id="countdown-container">
+        <div class="countdown-box">
+          <span id="countdown-dias">00</span>
+          <span class="countdown-label">Dias</span>
+        </div>
+        <div class="countdown-box">
+          <span id="countdown-horas">00</span>
+          <span class="countdown-label">Horas</span>
+        </div>
+        <div class="countdown-box">
+          <span id="countdown-minutos">00</span>
+          <span class="countdown-label">Minutos</span>
+        </div>
+        <div class="countdown-box" id="countdown-segundos-box">
+          <span id="countdown-segundos">00</span>
+          <span class="countdown-label">Segundos</span>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -105,13 +124,13 @@
         <div class="opcoes-inscricao">
           <div class="opcao">
             <h3>1. Por Email</h3>
-            <p>Envie sua proposta e detalhes do seu trabalho para o email:<br>  
-              <a href="mailto:luciana-fernandes@educar.rs.gov.br" class="link-inscricao">luciana-fernandes@educar.rs.gov.br</a>
+            <p>Envie sua proposta e detalhes do seu trabalho para o email:<br>
+              <a href="mailto:luciana-fernandes@educar.rs.gov.br?subject=Inscrição%20Mostra%20EETCS" class="link-inscricao">luciana-fernandes@educar.rs.gov.br</a>
             </p>
           </div>
           <div class="opcao">
             <h3>2. Pessoalmente</h3>
-            <p>Procure a professora Luciana na secretaria durante o turno da manhã, das 8h às 11h30.</p>
+            <p>Procure a professora Luciana durante o turno da manhã, das 8h às 11h30, ou a professora Scheila a tarde, das 14h às 17h</p>
           </div>
         </div>
 
@@ -125,6 +144,56 @@
       <p class="footer-info">© 2025 Eduardo Paim. Todos os direitos reservados.</p>
     </div>
   </footer>
+
+  <script>
+
+    const dataAlvo = new Date(2025, 10, 7, 8, 0, 0).getTime();
+
+
+    const x = setInterval(function() {
+
+
+      const agora = new Date().getTime();
+
+
+      const distancia = dataAlvo - agora;
+
+
+      const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+      const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+
+
+      const diasStr = dias < 10 ? "0" + dias : dias;
+      const horasStr = horas < 10 ? "0" + horas : horas;
+      const minutosStr = minutos < 10 ? "0" + minutos : minutos;
+      const segundosStr = segundos < 10 ? "0" + segundos : segundos;
+
+
+      const elDias = document.getElementById("countdown-dias");
+      const elHoras = document.getElementById("countdown-horas");
+      const elMinutos = document.getElementById("countdown-minutos");
+      const elSegundos = document.getElementById("countdown-segundos");
+
+      if (elDias && elHoras && elMinutos && elSegundos) {
+          elDias.innerHTML = diasStr;
+          elHoras.innerHTML = horasStr;
+          elMinutos.innerHTML = minutosStr;
+          elSegundos.innerHTML = segundosStr;
+      }
+
+
+      if (distancia < 0) {
+        clearInterval(x); // Para o relógio
+        // Substitui o relógio pela mensagem de "Já começou!"
+        const container = document.getElementById("countdown-container");
+        if(container) {
+          container.innerHTML = "<h2 class='evento-acontecendo'>A MOSTRA JÁ COMEÇOU!</h2>";
+        }
+      }
+    }, 1000); // Isso faz a função rodar a cada 1 segundo
+  </script>
 </body>
 
 </html>
