@@ -160,6 +160,15 @@ body {
     margin-top: 5px;
 }
 
+/* AJUSTE FINO VISUAL PARA A CAIXA "SEGUNDOS" (Mobile) */
+#countdown-segundos-box {
+  padding-left: 14px;
+  padding-right: 16px;
+  /* Mantém o padding vertical igual aos outros */
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 .evento-acontecendo {
     margin-top: 30px;
     color: #F2C94C;
@@ -363,6 +372,15 @@ body {
         /* width: 95px já está definido na regra principal */
     }
 
+    /* Ajuste fino para desktop (SEGUNDOS) */
+    #countdown-segundos-box {
+        padding-left: 14px; /* Ajuste específico */
+        padding-right: 16px; /* Ajuste específico */
+        padding-top: 15px;    /* Mantém o padding vertical do desktop */
+        padding-bottom: 15px; /* Mantém o padding vertical do desktop */
+    }
+
+
     .section-container {
         padding: 80px 40px;
     }
@@ -393,23 +411,4 @@ body {
     .opcoes-inscricao .opcao {
         flex: 1;
     }
-
-    /* Ajuste fino para desktop */
-    #countdown-segundos-box {
-        padding-left: 14px;
-        padding-right: 14px;
-        padding-top: 15px;
-        padding-bottom: 15px;
-    }
-}
-
-/* === AJUSTE FINO VISUAL PARA A CAIXA "SEGUNDOS" (ADICIONADO) === */
-#countdown-segundos-box {
-  /* Tira um pouquinho de espaço da esquerda */
-  padding-left: 14px;
-  /* Adiciona um pouquinho de espaço na direita */
-  padding-right: 16px;
-  /* Mantém o padding vertical igual aos outros (para mobile) */
-  padding-top: 10px;
-  padding-bottom: 10px;
 }
